@@ -73,3 +73,7 @@ button {
     align-items: center;
     justify-content: center;
 }
+
+button:hover {
+    background-color: rgb(99, 209, 209);
+}
