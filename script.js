@@ -52,16 +52,69 @@ function calculate() {
         pendingOperation = '';
     }
 }
-document.querySelectorAll(".number").forEach(button => {
+
+document.querySelectorAll(".number, .operator").forEach(button => {
     button.addEventListener("click", function() {
+        animateText(button);
         appendToScreen(button.textContent);
-    })
-})
-document.querySelectorAll(".operator").forEach(button => {
-    button.addEventListener("click", function() {
-        appendToScreen(button.textContent);
-    })
-})
+        console.log("Button clicked.", button.textContent);
+    });
+});
+
+// function animateText(button) {
+//     const textNode = button.firstChild;
+//     const originalText = button.textContent;
+
+//     const span = document.createElement("span");
+//     span.textContent = originalText;
+
+//     button.textContent = '';
+//     button.appendChild(span);
+
+//     span.offsetHeight;
+
+//     span.style.transition = "transform 0.3s ease-out, opacity 0.3s ease-out";
+//     span.style.transform = "scale(1.5)";
+//     span.style.opacity = 0.7;
+
+//     setTimeout(function() {
+//         span.style.transform = "";
+//         span.style.opacity = "";
+//         button.removeChild(span);
+//         button.textContent = originalText;
+//     }, 300);
+// }
+
+function animateText(button) {
+    const originalText = button.textContent;
+
+    // Create a span element for animation
+    const span = document.createElement("span");
+    span.textContent = originalText;
+    span.className = "animated-text";
+
+    // Replace the button's text content with the span
+    button.textContent = '';
+    button.appendChild(span);
+
+    // Trigger reflow to apply initial styles
+    span.offsetHeight;
+
+    // Apply animation styles
+    span.style.transition = "transform 0.3s ease-out, opacity 0.3s ease-out";
+    span.style.transform = "scale(8)";
+    span.style.opacity = 0;
+
+    // After the animation completes, restore the original text
+    setTimeout(function() {
+        // span.style.transform = "";
+        // span.style.opacity = "";
+        button.removeChild(span);
+        button.textContent = originalText;
+    }, 300); // Adjusted timeout to match transition duration
+}
+
+
 document.querySelector("#clear").addEventListener("click", function() {
     clearScreen();
 });
