@@ -64,8 +64,9 @@ button {
 .screen {
     height: 60px;
     margin-right: 10px;
-    width: 600px;
+    width: 200px;
     border-radius: 10px;
+    font-size: 30px;
 }
 
 .screen-clear {
@@ -77,3 +78,4 @@ button {
 button:hover {
     background-color: rgb(99, 209, 209);
 }
+
