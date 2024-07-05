@@ -67,6 +67,8 @@ button {
     width: 200px;
     border-radius: 10px;
     font-size: 30px;
+    color: aquamarine;
+    text-align: end;
 }
 
 .screen-clear {

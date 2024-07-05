@@ -102,7 +102,7 @@ function animateText(button) {
 
     // Apply animation styles
     span.style.transition = "transform 0.3s ease-out, opacity 0.3s ease-out";
-    span.style.transform = "scale(8)";
+    span.style.transform = "scale(7)";
     span.style.opacity = 0;
 
     // After the animation completes, restore the original text
